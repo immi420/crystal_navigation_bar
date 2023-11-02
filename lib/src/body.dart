@@ -13,8 +13,7 @@ class Body extends StatelessWidget {
     required this.unselectedItemColor,
     required this.onTap,
     required this.itemPadding,
-    required this.dotIndicatorColor,
-    required this.enablePaddingAnimation,
+    required this.indicatorColor,
     this.splashBorderRadius,
     this.splashColor,
   });
@@ -28,8 +27,8 @@ class Body extends StatelessWidget {
   final Color? unselectedItemColor;
   final Function(int index) onTap;
   final EdgeInsets itemPadding;
-  final Color? dotIndicatorColor;
-  final bool enablePaddingAnimation;
+  final Color? indicatorColor;
+  // final bool enablePaddingAnimation;
   final Color? splashColor;
   final double? splashBorderRadius;
   @override
@@ -64,26 +63,21 @@ class Body extends StatelessWidget {
                   hoverColor: splashColor ?? selectedColor.withOpacity(0.1),
                   child: Stack(children: <Widget>[
                     Padding(
-                      padding: itemPadding -
-                          (enablePaddingAnimation
-                              ? EdgeInsets.only(right: itemPadding.right * t)
-                              : EdgeInsets.zero),
-                      child: Row(
-                        children: [
-                          IconTheme(
-                            data: IconThemeData(
-                              color:
-                                  Color.lerp(unselectedColor, selectedColor, t),
-                              size: 24,
-                            ),
-                            child: item.icon,
+                      padding: itemPadding +
+                          const EdgeInsets.symmetric(
+                            horizontal: 2,
                           ),
-                        ],
+                      child: Icon(
+                        items.indexOf(item) == currentIndex
+                            ? item.icon
+                            : (item.unselectedIcon ?? item.icon),
+                        size: 24,
+                        color: Color.lerp(unselectedColor, selectedColor, t),
                       ),
                     ),
                     ClipRect(
                       child: SizedBox(
-                        height: 40,
+                        height: 48,
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           widthFactor: t,
@@ -99,10 +93,13 @@ class Body extends StatelessWidget {
                                     t),
                                 fontWeight: FontWeight.w600,
                               ),
-                              child: CircleAvatar(
-                                  radius: 2.5,
-                                  backgroundColor:
-                                      dotIndicatorColor ?? selectedColor),
+                              child: Container(
+                                height: 2,
+                                width: 16,
+                                decoration: BoxDecoration(
+                                    color: indicatorColor ?? selectedColor,
+                                    borderRadius: BorderRadius.circular(10)),
+                              ),
                             ),
                           ),
                         ),

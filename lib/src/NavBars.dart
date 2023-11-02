@@ -1,8 +1,10 @@
+import 'dart:ui';
+
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
-class DotNavigationBar extends StatelessWidget {
-  const DotNavigationBar({
+class CrystalNavigationBar extends StatelessWidget {
+  const CrystalNavigationBar({
     super.key,
     required this.items,
     this.currentIndex = 0,
@@ -10,15 +12,16 @@ class DotNavigationBar extends StatelessWidget {
     this.selectedItemColor,
     this.unselectedItemColor,
     this.margin = const EdgeInsets.all(8),
-    this.itemPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+    this.itemPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
     this.duration = const Duration(milliseconds: 500),
     this.curve = Curves.easeOutQuint,
-    this.dotIndicatorColor,
+    this.indicatorColor,
     this.marginR = const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
     this.paddingR = const EdgeInsets.only(bottom: 5, top: 10),
     this.borderRadius = 30,
     this.splashBorderRadius,
     this.backgroundColor = Colors.white,
+    this.outlineBorderColor = Colors.white24,
     this.boxShadow = const [
       BoxShadow(
         color: Colors.transparent,
@@ -59,8 +62,8 @@ class DotNavigationBar extends StatelessWidget {
   /// The transition curve
   final Curve curve;
 
-  /// The color of the Dot indicator.
-  final Color? dotIndicatorColor;
+  /// The color of the bottom indicator.
+  final Color? indicatorColor;
 
   /// margin for the bar to give some radius
   final EdgeInsetsGeometry? marginR;
@@ -73,6 +76,9 @@ class DotNavigationBar extends StatelessWidget {
 
   ///bgd colors for the nav bar
   final Color? backgroundColor;
+
+  ///outline border colors for the nav bar
+  final Color outlineBorderColor;
 
   /// List of box shadow
   final List<BoxShadow> boxShadow;
@@ -96,21 +102,25 @@ class DotNavigationBar extends StatelessWidget {
         ? BottomAppBar(
             color: Colors.transparent,
             elevation: 0,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Padding(
-                  padding: marginR!,
+            child: Padding(
+              padding: marginR!,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(borderRadius!),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaY: 10, sigmaX: 10),
                   child: Container(
                     padding: paddingR,
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(borderRadius!),
+                      border: Border.all(color: outlineBorderColor),
                       color: backgroundColor,
                       boxShadow: boxShadow,
                     ),
-                    width: double.infinity,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                      ),
                       child: Body(
                           items: items,
                           currentIndex: currentIndex,
@@ -121,18 +131,17 @@ class DotNavigationBar extends StatelessWidget {
                           unselectedItemColor: unselectedItemColor,
                           onTap: onTap!,
                           itemPadding: itemPadding,
-                          dotIndicatorColor: dotIndicatorColor,
-                          enablePaddingAnimation: enablePaddingAnimation,
+                          indicatorColor: indicatorColor,
                           splashColor: splashColor,
                           splashBorderRadius: splashBorderRadius),
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
           )
         : Container(
-            padding: EdgeInsets.symmetric(vertical: 12),
+            padding: const EdgeInsets.symmetric(vertical: 12),
             color: backgroundColor,
             child: Padding(
               padding: margin,
@@ -146,8 +155,7 @@ class DotNavigationBar extends StatelessWidget {
                   unselectedItemColor: unselectedItemColor,
                   onTap: onTap!,
                   itemPadding: itemPadding,
-                  dotIndicatorColor: dotIndicatorColor,
-                  enablePaddingAnimation: enablePaddingAnimation,
+                  indicatorColor: indicatorColor,
                   splashColor: splashColor,
                   splashBorderRadius: splashBorderRadius),
             ),
