@@ -26,7 +26,7 @@
 
 A highly flexible bottom navigation bar that allows you to tailor it to your specific needs without any constraints. Elevate your UI/UX with seamless animations, customizable appearance—including the option to incorporate blur effects—and the ability to fully personalize the interface.
 
-<img src="screenshots/example1.gif" width="300" height="300" /> | <img src="screenshots/example2.gif" width="300" height="300" />
+<img src="screenshots/example1.gif" width="300" height="300" /> <img src="screenshots/example2.gif" width="300" height="300" />
 
 
 ___
