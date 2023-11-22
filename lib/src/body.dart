@@ -35,6 +35,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
       children: [
         for (final item in items)
           TweenAnimationBuilder<double>(

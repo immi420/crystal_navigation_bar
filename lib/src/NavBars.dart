@@ -8,6 +8,7 @@ class CrystalNavigationBar extends StatelessWidget {
     super.key,
     required this.items,
     this.currentIndex = 0,
+    this.height = 105,
     this.onTap,
     this.selectedItemColor,
     this.unselectedItemColor,
@@ -74,6 +75,9 @@ class CrystalNavigationBar extends StatelessWidget {
   /// border radius
   final double? borderRadius;
 
+  ///height
+  final double? height;
+
   ///bgd colors for the nav bar
   final Color? backgroundColor;
 
@@ -101,7 +105,9 @@ class CrystalNavigationBar extends StatelessWidget {
     return enableFloatingNavBar
         ? BottomAppBar(
             color: Colors.transparent,
+            padding: EdgeInsets.zero,
             elevation: 0,
+            height: height! < 105 ? 105 : height,
             child: Padding(
               padding: marginR!,
               child: ClipRRect(
@@ -118,9 +124,7 @@ class CrystalNavigationBar extends StatelessWidget {
                       boxShadow: boxShadow,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: Body(
                           items: items,
                           currentIndex: currentIndex,

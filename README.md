@@ -150,6 +150,7 @@ Widget build(BuildContext context) {
 The constructor has 19 attributes related to the Widget:
 
 - `items`: A list of tabs to display, example `Home`, `Profile`,`Search`, etc
+- `height`: The height of CrystalNavigationBar, [Default] & [Minimum] height is 105,
 - `currentIndex`: The tab to display.
 - `onTap`:Returns the index of the tab that was tapped.
 - `outlineBorderColor` : Border Color of the Bottom bar.

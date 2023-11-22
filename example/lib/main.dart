@@ -57,6 +57,7 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.only(bottom: 10),
         child: CrystalNavigationBar(
           currentIndex: _SelectedTab.values.indexOf(_selectedTab),
+          height: 10,
           // indicatorColor: Colors.blue,
           unselectedItemColor: Colors.white70,
           backgroundColor: Colors.black.withOpacity(0.1),
