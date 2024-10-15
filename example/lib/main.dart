@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Crystal Bottom BAr Example',
+      title: 'Crystal Bottom Bar Example',
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
@@ -43,61 +43,112 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     extendBody: true,
+  //     body: SizedBox(
+  //       height: MediaQuery.of(context).size.height,
+  //       child: Image.network(
+  //         "https://images.pexels.com/photos/1671325/pexels-photo-1671325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  //         fit: BoxFit.fitHeight,
+  //       ),
+  //     ),
+  //     bottomNavigationBar: CrystalNavigationBar(
+  //       currentIndex: _SelectedTab.values.indexOf(_selectedTab),
+  //       height: 10,
+  //       // indicatorColor: Colors.blue,
+  //       unselectedItemColor: Colors.white70,
+  //       backgroundColor: Colors.black.withOpacity(0.1),
+  //       onTap: _handleIndexChanged,
+  //       items: [
+  //         /// Home
+  //         CrystalNavigationBarItem(
+  //           icon: IconlyBold.home,
+  //           unselectedIcon: IconlyLight.home,
+  //           selectedColor: Colors.white,
+  //         ),
+  //
+  //         /// Favourite
+  //         CrystalNavigationBarItem(
+  //           icon: IconlyBold.heart,
+  //           unselectedIcon: IconlyLight.heart,
+  //           selectedColor: Colors.red,
+  //         ),
+  //
+  //         /// Add
+  //         CrystalNavigationBarItem(
+  //           icon: IconlyBold.plus,
+  //           unselectedIcon: IconlyLight.plus,
+  //           selectedColor: Colors.white,
+  //         ),
+  //
+  //         /// Search
+  //         CrystalNavigationBarItem(
+  //             icon: IconlyBold.search,
+  //             unselectedIcon: IconlyLight.search,
+  //             selectedColor: Colors.white),
+  //
+  //         /// Profile
+  //         CrystalNavigationBarItem(
+  //           icon: IconlyBold.user_2,
+  //           unselectedIcon: IconlyLight.user,
+  //           selectedColor: Colors.white,
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        child: Image.network(
-          "https://images.pexels.com/photos/1671325/pexels-photo-1671325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-          fit: BoxFit.fitHeight,
-        ),
+      backgroundColor: Colors.orange,
+      body: Center(
+        child: Text("jjj"),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: CrystalNavigationBar(
-          currentIndex: _SelectedTab.values.indexOf(_selectedTab),
-          height: 10,
-          // indicatorColor: Colors.blue,
-          unselectedItemColor: Colors.white70,
-          backgroundColor: Colors.black.withOpacity(0.1),
-          onTap: _handleIndexChanged,
-          items: [
-            /// Home
-            CrystalNavigationBarItem(
-              icon: IconlyBold.home,
-              unselectedIcon: IconlyLight.home,
-              selectedColor: Colors.white,
-            ),
+      bottomNavigationBar: CrystalNavigationBar(
+        currentIndex: 1,
+        height: 10,
+        indicatorColor: Theme.of(context).colorScheme.secondary,
+        unselectedItemColor: Colors.blue,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        onTap: (index) {},
+        enableFloatingNavBar: false,
+        items: [
+          /// Home
+          CrystalNavigationBarItem(
+            icon: IconlyBold.home,
+            unselectedIcon: IconlyLight.home,
+            selectedColor: Colors.white,
+          ),
 
-            /// Favourite
-            CrystalNavigationBarItem(
-              icon: IconlyBold.heart,
-              unselectedIcon: IconlyLight.heart,
-              selectedColor: Colors.red,
-            ),
+          /// Favourite
+          CrystalNavigationBarItem(
+            icon: IconlyBold.heart,
+            unselectedIcon: IconlyLight.heart,
+            selectedColor: Colors.red,
+          ),
 
-            /// Add
-            CrystalNavigationBarItem(
-              icon: IconlyBold.plus,
-              unselectedIcon: IconlyLight.plus,
-              selectedColor: Colors.white,
-            ),
+          /// Add
+          CrystalNavigationBarItem(
+            icon: IconlyBold.plus,
+            unselectedIcon: IconlyLight.plus,
+            selectedColor: Colors.white,
+          ),
 
-            /// Search
-            CrystalNavigationBarItem(
-                icon: IconlyBold.search,
-                unselectedIcon: IconlyLight.search,
-                selectedColor: Colors.white),
+          /// Search
+          CrystalNavigationBarItem(
+              icon: IconlyBold.search,
+              unselectedIcon: IconlyLight.search,
+              selectedColor: Colors.white),
 
-            /// Profile
-            CrystalNavigationBarItem(
-              icon: IconlyBold.user_2,
-              unselectedIcon: IconlyLight.user,
-              selectedColor: Colors.white,
-            ),
-          ],
-        ),
+          /// Profile
+          CrystalNavigationBarItem(
+            icon: IconlyBold.user_2,
+            unselectedIcon: IconlyLight.user,
+            selectedColor: Colors.white,
+          ),
+        ],
       ),
     );
   }
