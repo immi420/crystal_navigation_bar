@@ -1,6 +1,11 @@
 
 ## 1.0.0
 
+* Bug Fixes
+* Readme Docs Updated.
+
+## 1.0.0
+
 * Updated to Flutter 3.16
 * BottomBar Height bug resolved.
 * Added height parameter for Custom height of BottomNavigationBar
