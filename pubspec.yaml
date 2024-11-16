@@ -1,8 +1,16 @@
 name: crystal_navigation_bar
 description: Sleek, crystal-clear blur bottom navigation bar with dynamic indicator for seamless app navigation.
-version: 1.0.1
+version: 1.0.2
 #authors: Imtiaz Ahmad -twitter [its_immi]
 homepage: https://github.com/immi420/crystal_navigation_bar
+repository: https://github.com/immi420/crystal_navigation_bar
+issue_tracker: https://github.com/immi420/crystal_navigation_bar/issues
+topics:
+  - crystalNavigationBar
+  - bottomNavigationBar
+  - blurNavBar
+funding:
+  - https://buymeacoffee.com/immi420
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
@@ -15,7 +23,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
 

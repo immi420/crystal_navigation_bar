@@ -21,7 +21,7 @@ class CrystalNavigationBar extends StatelessWidget {
     this.paddingR = const EdgeInsets.only(bottom: 5, top: 10),
     this.borderRadius = 30,
     this.splashBorderRadius,
-    this.backgroundColor = Colors.white,
+    this.backgroundColor = Colors.transparent,
     this.outlineBorderColor = Colors.white24,
     this.boxShadow = const [
       BoxShadow(
@@ -110,34 +110,39 @@ class CrystalNavigationBar extends StatelessWidget {
             height: height! < 105 ? 105 : height,
             child: Padding(
               padding: marginR!,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(borderRadius!),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaY: 10, sigmaX: 10),
-                  child: Container(
-                    padding: paddingR,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(borderRadius!),
-                      border: Border.all(color: outlineBorderColor),
-                      color: backgroundColor,
-                      boxShadow: boxShadow,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Body(
-                          items: items,
-                          currentIndex: currentIndex,
-                          curve: curve,
-                          duration: duration,
-                          selectedItemColor: selectedItemColor,
-                          theme: theme,
-                          unselectedItemColor: unselectedItemColor,
-                          onTap: onTap!,
-                          itemPadding: itemPadding,
-                          indicatorColor: indicatorColor,
-                          splashColor: splashColor,
-                          splashBorderRadius: splashBorderRadius),
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: boxShadow, // Apply the shadow here
+                  borderRadius: BorderRadius.circular(borderRadius!),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(borderRadius!),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaY: 10, sigmaX: 10),
+                    child: Container(
+                      padding: paddingR,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(borderRadius!),
+                        border: Border.all(color: outlineBorderColor),
+                        color: backgroundColor,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: Body(
+                            items: items,
+                            currentIndex: currentIndex,
+                            curve: curve,
+                            duration: duration,
+                            selectedItemColor: selectedItemColor,
+                            theme: theme,
+                            unselectedItemColor: unselectedItemColor,
+                            onTap: onTap!,
+                            itemPadding: itemPadding,
+                            indicatorColor: indicatorColor,
+                            splashColor: splashColor,
+                            splashBorderRadius: splashBorderRadius),
+                      ),
                     ),
                   ),
                 ),

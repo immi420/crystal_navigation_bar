@@ -1,5 +1,11 @@
 
-## 1.0.0
+## 1.0.2
+
+* Shadow not showing[Fixed].
+* Readme Docs Updated.
+
+
+## 1.0.1
 
 * Bug Fixes
 * Readme Docs Updated.

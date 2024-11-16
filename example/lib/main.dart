@@ -43,77 +43,31 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     extendBody: true,
-  //     body: SizedBox(
-  //       height: MediaQuery.of(context).size.height,
-  //       child: Image.network(
-  //         "https://images.pexels.com/photos/1671325/pexels-photo-1671325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  //         fit: BoxFit.fitHeight,
-  //       ),
-  //     ),
-  //     bottomNavigationBar: CrystalNavigationBar(
-  //       currentIndex: _SelectedTab.values.indexOf(_selectedTab),
-  //       height: 10,
-  //       // indicatorColor: Colors.blue,
-  //       unselectedItemColor: Colors.white70,
-  //       backgroundColor: Colors.black.withOpacity(0.1),
-  //       onTap: _handleIndexChanged,
-  //       items: [
-  //         /// Home
-  //         CrystalNavigationBarItem(
-  //           icon: IconlyBold.home,
-  //           unselectedIcon: IconlyLight.home,
-  //           selectedColor: Colors.white,
-  //         ),
-  //
-  //         /// Favourite
-  //         CrystalNavigationBarItem(
-  //           icon: IconlyBold.heart,
-  //           unselectedIcon: IconlyLight.heart,
-  //           selectedColor: Colors.red,
-  //         ),
-  //
-  //         /// Add
-  //         CrystalNavigationBarItem(
-  //           icon: IconlyBold.plus,
-  //           unselectedIcon: IconlyLight.plus,
-  //           selectedColor: Colors.white,
-  //         ),
-  //
-  //         /// Search
-  //         CrystalNavigationBarItem(
-  //             icon: IconlyBold.search,
-  //             unselectedIcon: IconlyLight.search,
-  //             selectedColor: Colors.white),
-  //
-  //         /// Profile
-  //         CrystalNavigationBarItem(
-  //           icon: IconlyBold.user_2,
-  //           unselectedIcon: IconlyLight.user,
-  //           selectedColor: Colors.white,
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      backgroundColor: Colors.orange,
-      body: Center(
-        child: Text("jjj"),
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: Image.network(
+          "https://mrahkat.net/wp-content/uploads/2019/07/unnamed-file-416.jpg",
+          fit: BoxFit.fitHeight,
+        ),
       ),
       bottomNavigationBar: CrystalNavigationBar(
-        currentIndex: 1,
+        currentIndex: _SelectedTab.values.indexOf(_selectedTab),
         height: 10,
-        indicatorColor: Theme.of(context).colorScheme.secondary,
-        unselectedItemColor: Colors.blue,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        onTap: (index) {},
-        enableFloatingNavBar: false,
+        // indicatorColor: Colors.blue,
+        unselectedItemColor: Colors.white70,
+        backgroundColor: Colors.black.withOpacity(0.1),
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: Colors.black.withOpacity(0.1),
+        //     blurRadius: 4,
+        //     spreadRadius: 4,
+        //     offset: Offset(0, 10),
+        //   ),
+        // ],
+        onTap: _handleIndexChanged,
         items: [
           /// Home
           CrystalNavigationBarItem(
