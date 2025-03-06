@@ -1,7 +1,9 @@
-
 # Changelog
-##1.0.3
+
+## 1.0.3
 * borderWidth property added.
+* badge property added.(to display notification count etc)
+* Readme Docs Updated.
 
 ## 1.0.2
 
