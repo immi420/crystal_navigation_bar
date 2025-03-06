@@ -58,7 +58,9 @@ class _HomePageState extends State<HomePage> {
         height: 10,
         // indicatorColor: Colors.blue,
         unselectedItemColor: Colors.white70,
-        backgroundColor: Colors.black.withOpacity(0.1),
+        // borderWidth: 1,
+        // outlineBorderColor: Colors.red,
+        backgroundColor: Colors.black.withValues(alpha: 0.5),
         // boxShadow: [
         //   BoxShadow(
         //     color: Colors.black.withOpacity(0.1),

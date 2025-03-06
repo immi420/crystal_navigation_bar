@@ -1,14 +1,14 @@
 name: crystal_navigation_bar
 description: Sleek, crystal-clear blur bottom navigation bar with dynamic indicator for seamless app navigation.
-version: 1.0.2
+version: 1.0.3
 #authors: Imtiaz Ahmad -twitter [its_immi]
 homepage: https://github.com/immi420/crystal_navigation_bar
 repository: https://github.com/immi420/crystal_navigation_bar
 issue_tracker: https://github.com/immi420/crystal_navigation_bar/issues
 topics:
-  - crystalNavigationBar
-  - bottomNavigationBar
-  - blurNavBar
+  - crystal-navigation-bar
+  - bottomnavigation
+  - blurnavbar
 funding:
   - https://buymeacoffee.com/immi420
 

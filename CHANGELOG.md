@@ -1,4 +1,8 @@
 
+# Changelog
+##1.0.3
+* borderWidth property added.
+
 ## 1.0.2
 
 * Shadow not showing[Fixed].
