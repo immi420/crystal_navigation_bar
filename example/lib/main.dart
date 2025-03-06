@@ -46,20 +46,32 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        child: Image.network(
-          "https://mrahkat.net/wp-content/uploads/2019/07/unnamed-file-416.jpg",
-          fit: BoxFit.fitHeight,
-        ),
-      ),
+      // body: SizedBox(
+      //   height: MediaQuery.of(context).size.height,
+      //   child: Image.network(
+      //     "https://mrahkat.net/wp-content/uploads/2019/07/unnamed-file-416.jpg",
+      //     fit: BoxFit.fitHeight,
+      //   ),
+      // ),
+      body: Container(
+          color: Colors.blueGrey,
+          child: Center(
+            child: Text(
+              _selectedTab.name,
+              style: const TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          )),
       bottomNavigationBar: CrystalNavigationBar(
         currentIndex: _SelectedTab.values.indexOf(_selectedTab),
         height: 10,
         // indicatorColor: Colors.blue,
         unselectedItemColor: Colors.white70,
-        // borderWidth: 1,
-        // outlineBorderColor: Colors.red,
+        borderWidth: 2,
+        outlineBorderColor: Colors.white,
         backgroundColor: Colors.black.withValues(alpha: 0.5),
         // boxShadow: [
         //   BoxShadow(
