@@ -88,6 +88,12 @@ class _HomePageState extends State<HomePage> {
             icon: IconlyBold.home,
             unselectedIcon: IconlyLight.home,
             selectedColor: Colors.white,
+            badge: Badge(
+              label: Text(
+                "9+",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           ),
 
           /// Favourite

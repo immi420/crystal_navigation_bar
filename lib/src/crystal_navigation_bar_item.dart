@@ -8,6 +8,9 @@ class CrystalNavigationBarItem {
   /// An icon to display.
   final IconData? unselectedIcon;
 
+  ///badge
+  final Badge? badge;
+
   /// A primary color to use for this tab.
   final Color? selectedColor;
 
@@ -19,5 +22,6 @@ class CrystalNavigationBarItem {
     this.unselectedIcon,
     this.selectedColor,
     this.unselectedColor,
+    this.badge,
   });
 }

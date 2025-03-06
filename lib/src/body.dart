@@ -14,6 +14,7 @@ class Body extends StatelessWidget {
     required this.onTap,
     required this.itemPadding,
     required this.indicatorColor,
+    // this.enablePaddingAnimation = true,
     this.splashBorderRadius,
     this.splashColor,
   });
@@ -63,6 +64,12 @@ class Body extends StatelessWidget {
                   splashColor: splashColor ?? selectedColor.withOpacity(0.1),
                   hoverColor: splashColor ?? selectedColor.withOpacity(0.1),
                   child: Stack(children: <Widget>[
+                    if (item.badge != null)
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: item.badge!,
+                      ),
                     Padding(
                       padding: itemPadding +
                           const EdgeInsets.symmetric(
