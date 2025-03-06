@@ -26,18 +26,20 @@
 
 A highly flexible bottom navigation bar that allows you to tailor it to your specific needs without any constraints. Elevate your UI/UX with seamless animations, customizable appearance—including the option to incorporate blur effects—and the ability to fully personalize the interface.
 
-![](screenshots/example.gif)
+<p align="left">
+<img src="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/example.gif?raw=true" width="100%" alt="Styles" />
+</p>
 
 <table>
   <tr>
-    <td align="center">
-        <img src="screenshots/screenshot1.png" alt="Screenshot 1" width="300"/>
-         <p>Simple BottomBar</p>
-        <p>With Border</p>
+     <td align="center">
+        <a href="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/screenshot1.png?raw=true"><img src="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/screenshot1.png?raw=true" alt="Screenshot 1" width="300"/></a>
+        <p>Simple BottomBar</p>
+         <p>With Border</p>
     </td>
     <td align="center">
-      <img src="screenshots/screenshot_with_badge.png" alt="Screenshot 2" width="300"/>
-      <p>Simple BottomBar</p>
+      <a href="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/screenshot_with_badge.png?raw=true"><img src="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/screenshot_with_badge.png?raw=true" alt="Screenshot 2" width="300"/></a>
+       <p>Simple BottomBar</p>
         <p>With Badge</p>
     </td>
   </tr>
