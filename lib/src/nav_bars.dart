@@ -23,6 +23,7 @@ class CrystalNavigationBar extends StatelessWidget {
     this.splashBorderRadius,
     this.backgroundColor = Colors.transparent,
     this.outlineBorderColor = Colors.white24,
+    this.borderWidth = 0.0,
     this.boxShadow = const [
       BoxShadow(
         color: Colors.transparent,
@@ -84,6 +85,10 @@ class CrystalNavigationBar extends StatelessWidget {
   ///outline border colors for the nav bar
   final Color outlineBorderColor;
 
+  ///borderWidth
+
+  final double borderWidth;
+
   /// List of box shadow
   final List<BoxShadow> boxShadow;
   final bool enableFloatingNavBar;
@@ -124,7 +129,8 @@ class CrystalNavigationBar extends StatelessWidget {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(borderRadius!),
-                        border: Border.all(color: outlineBorderColor),
+                        border: Border.all(
+                            width: borderWidth, color: outlineBorderColor),
                         color: backgroundColor,
                       ),
                       child: Padding(
