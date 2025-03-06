@@ -28,6 +28,25 @@ A highly flexible bottom navigation bar that allows you to tailor it to your spe
 
 ![](screenshots/example.gif)
 
+<table>
+  <tr>
+    <td align="center">
+        <img src="screenshots/screenshot1.png" alt="Screenshot 1" width="300"/>
+         <p>Simple BottomBar</p>
+        <p>With Border</p>
+    </td>
+    <td align="center">
+      <img src="screenshots/screenshot_with_badge.png" alt="Screenshot 2" width="300"/>
+      <p>Simple BottomBar</p>
+        <p>With Badge</p>
+    </td>
+  </tr>
+  <tr>
+
+  </tr>
+</table>
+
+
 ___
 
 CRYSTAL BOTTOM NAVIGATION BAR
@@ -104,6 +123,8 @@ Widget build(BuildContext context) {
           unselectedItemColor: Colors.white70,
           backgroundColor: Colors.black.withOpacity(0.1),
           // outlineBorderColor: Colors.black.withOpacity(0.1),
+          borderWidth: 2,
+          outlineBorderColor: Colors.white,
           onTap: _handleIndexChanged,
           items: [
             /// Home
@@ -111,6 +132,12 @@ Widget build(BuildContext context) {
               icon: IconlyBold.home,
               unselectedIcon: IconlyLight.home,
               selectedColor: Colors.white,
+              badge: Badge(
+                label: Text(
+                  "9+",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
 
             /// Favourite
@@ -154,6 +181,8 @@ The constructor has 19 attributes related to the Widget:
 - `currentIndex`: The tab to display.
 - `onTap`:Returns the index of the tab that was tapped.
 - `outlineBorderColor` : Border Color of the Bottom bar.
+- `borderWidth` : Border Width of the Bottom bar.
+- `badge` : Badge to display. (to display notification count etc).
 - `selectedItemColor`:The color of the icon and text when the item is selected.
 - `unselectedItemColor`: The color of the icon and text when the item is not selected.
 - `margin`:A convenience field for the margin surrounding the entire widget.
