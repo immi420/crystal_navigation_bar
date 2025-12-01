@@ -1,5 +1,6 @@
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -75,13 +76,12 @@ class Body extends StatelessWidget {
                           const EdgeInsets.symmetric(
                             horizontal: 2,
                           ),
-                      child: Icon(
-                        items.indexOf(item) == currentIndex
-                            ? item.icon
-                            : (item.unselectedIcon ?? item.icon),
-                        size: 24,
-                        color: Color.lerp(unselectedColor, selectedColor, t),
-                      ),
+                      child: _buildIcon(
+                          item,
+                          items.indexOf(item) == currentIndex,
+                          selectedColor,
+                          unselectedColor,
+                          t),
                     ),
                     ClipRect(
                       child: SizedBox(
@@ -120,5 +120,28 @@ class Body extends StatelessWidget {
           ),
       ],
     );
+  }
+
+  Widget _buildIcon(CrystalNavigationBarItem item, bool isSelected,
+      Color? selectedColor, Color? unselectedColor, double t) {
+    return item.isIcon
+        ? Icon(
+            items.indexOf(item) == currentIndex
+                ? item.icon
+                : (item.unselectedIcon ?? item.icon),
+            size: 24,
+            color: Color.lerp(unselectedColor, selectedColor, t),
+          )
+        : SvgPicture.asset(
+            items.indexOf(item) == currentIndex
+                ? item.icon
+                : (item.unselectedIcon ?? item.icon),
+            width: 24,
+            height: 24,
+            colorFilter: ColorFilter.mode(
+              Color.lerp(unselectedColor, selectedColor, t)!,
+              BlendMode.srcIn,
+            ),
+          );
   }
 }
