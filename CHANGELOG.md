@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0
+* SVG icon support added - Use `CrystalNavigationBarItem.svg()` constructor to use SVG assets as icons.
+* Added `flutter_svg` dependency for SVG rendering support.
+
 ## 1.0.4
 * Readme Docs Updated.
 
