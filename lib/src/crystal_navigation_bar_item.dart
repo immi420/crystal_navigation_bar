@@ -1,45 +1,60 @@
 import 'package:flutter/material.dart';
 
-/// A tab to display in a [CrystalNavigationBar]
+import 'icon_source.dart';
+
+/// A tab to display in a [CrystalNavigationBar].
 class CrystalNavigationBarItem {
-  /// An icon to display (can be IconData or String path for SVG).
-  final dynamic icon;
-
-  /// An icon to display when unselected.
-  final dynamic? unselectedIcon;
-
-  /// Badge to display on the icon.
-  final Badge? badge;
-
-  /// A primary color to use for this tab.
-  final Color? selectedColor;
-
-  /// The color to display when this tab is not selected.
-  final Color? unselectedColor;
-
-  /// Creates a navigation bar item with an IconData icon.
+  /// Creates an item with [IconData] icons.
   CrystalNavigationBarItem({
-    required this.icon,
-    this.unselectedIcon,
+    required IconData icon,
+    IconData? unselectedIcon,
     this.selectedColor,
     this.unselectedColor,
     this.badge,
-  }) : assert(icon is IconData, 'Icon must be of type IconData');
+    this.label,
+  })  : icon = CrystalNavIcon.data(icon),
+        unselectedIcon = unselectedIcon != null
+            ? CrystalNavIcon.data(unselectedIcon)
+            : null;
 
-  /// Creates a navigation bar item with an SVG asset.
+  /// Creates an item with SVG asset icons.
   CrystalNavigationBarItem.svg({
     required String iconPath,
     String? unselectedIconPath,
     this.selectedColor,
     this.unselectedColor,
     this.badge,
-  })  : icon = iconPath,
-        unselectedIcon = unselectedIconPath ?? iconPath,
-        assert(iconPath.endsWith('.svg'), 'SVG path must end with .svg');
+    this.label,
+  })  : icon = CrystalNavIcon.svg(iconPath),
+        unselectedIcon = CrystalNavIcon.svg(
+          unselectedIconPath ?? iconPath,
+        );
 
-  /// Whether this item uses an SVG asset.
-  bool get isSvg => icon is String && (icon as String).endsWith('.svg');
+  /// Creates an item with an explicit [CrystalNavIcon].
+  CrystalNavigationBarItem.custom({
+    required this.icon,
+    this.unselectedIcon,
+    this.selectedColor,
+    this.unselectedColor,
+    this.badge,
+    this.label,
+  });
 
-  /// Whether this item uses an IconData icon.
-  bool get isIcon => !isSvg;
+  /// Selected (or only) icon.
+  final CrystalNavIcon icon;
+
+  /// Icon when unselected; falls back to [icon] when null.
+  final CrystalNavIcon? unselectedIcon;
+
+  /// Optional overlay (notification count, etc.). Any [Widget] is allowed.
+  final Widget? badge;
+
+  /// Optional text label under the icon when `showLabels` is enabled.
+  final String? label;
+
+  /// Color when this tab is selected.
+  final Color? selectedColor;
+
+  /// Color when this tab is not selected.
+  final Color? unselectedColor;
 }

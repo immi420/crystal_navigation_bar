@@ -1,222 +1,159 @@
- <h1 align="center">  Crystal Bottom Navigation Bar</h1>
+# Crystal Navigation Bar
 
- <p align="center">
+A frosted, floating bottom navigation bar with blur, animated indicator, badges, optional labels, and typed IconData / SVG icons.
 
- <img src="https://img.shields.io/badge/Maintained%3F-Yes-green?style=for-the-badge">
+<p align="center">
+  <img src="https://img.shields.io/badge/Maintained%3F-Yes-green?style=for-the-badge" alt="Maintained">
   <br>
-  <a href="#" target="_blank"><img alt="undefined" src="https://badgen.net/pub/flutter-platform/crystal_navigation_bar"></a>
-  <a href="#" target="_blank"><img alt="undefined" src="https://badgen.net/pub/sdk-version/crystal_navigation_bar"></a>
+  <a href="https://pub.dev/packages/crystal_navigation_bar"><img alt="Pub platforms" src="https://badgen.net/pub/flutter-platform/crystal_navigation_bar"></a>
+  <a href="https://pub.dev/packages/crystal_navigation_bar"><img alt="Pub SDK" src="https://badgen.net/pub/sdk-version/crystal_navigation_bar"></a>
   <br>
-  <a href="#" target="_blank"><img alt="undefined" src="https://badgen.net/pub/v/crystal_navigation_bar"></a>
-  <a href="#" target="_blank"><img alt="undefined" src="https://badgen.net/pub/license/crystal_navigation_bar"></a>
-  <a href="#" target="_blank"><img alt="undefined" src="https://badgen.net/pub/likes/crystal_navigation_bar"></a>
-  <a href="#" target="_blank"><img alt="undefined" src="https://badgen.net/pub/points/crystal_navigation_bar"></a>
-  <a href="#" target="_blank"><img alt="undefined" src="https://badgen.net/pub/popularity/crystal_navigation_bar"></a>
-  <br>
-  <a href="#"><img alt="undefined" src="https://img.shields.io/github/license/GitSquared/edex-ui.svg?style=popout"></a>
-  <a href="#" target="_blank"><img alt="undefined" src="https://badgen.net//github/stars/immi420/crystal_navigation_bar"></a>
-
-
-  <br>
-
-
+  <a href="https://pub.dev/packages/crystal_navigation_bar"><img alt="Pub version" src="https://badgen.net/pub/v/crystal_navigation_bar"></a>
+  <a href="https://pub.dev/packages/crystal_navigation_bar"><img alt="Pub likes" src="https://badgen.net/pub/likes/crystal_navigation_bar"></a>
+  <a href="https://pub.dev/packages/crystal_navigation_bar"><img alt="Pub points" src="https://badgen.net/pub/points/crystal_navigation_bar"></a>
 </p>
 
-
-
-A highly flexible bottom navigation bar that allows you to tailor it to your specific needs without any constraints. Elevate your UI/UX with seamless animations, customizable appearance—including the option to incorporate blur effects—and the ability to fully personalize the interface.
-
 <p align="left">
-<img src="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/example.gif?raw=true" width="100%" alt="Styles" />
+  <img src="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/example.gif?raw=true" width="100%" alt="Demo" />
 </p>
 
 <table>
   <tr>
-     <td align="center">
-        <a href="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/screenshot1.png?raw=true"><img src="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/screenshot1.png?raw=true" alt="Screenshot 1" width="300"/></a>
-        <p>Simple BottomBar</p>
-         <p>With Border</p>
+    <td align="center">
+      <img src="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/screenshot1.png?raw=true" alt="With border" width="300"/>
+      <p>Border + floating blur</p>
     </td>
     <td align="center">
-      <a href="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/screenshot_with_badge.png?raw=true"><img src="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/screenshot_with_badge.png?raw=true" alt="Screenshot 2" width="300"/></a>
-       <p>Simple BottomBar</p>
-        <p>With Badge</p>
+      <img src="https://github.com/immi420/crystal_navigation_bar/blob/master/screenshots/screenshot_with_badge.png?raw=true" alt="With badge" width="300"/>
+      <p>Badge support</p>
     </td>
-  </tr>
-  <tr>
-
   </tr>
 </table>
 
+## Features
 
-___
+- Blur / frosted glass navigation bar (`blurSigma`)
+- Floating or edge-to-edge modes
+- Animated selection indicator
+- Badges (any `Widget`)
+- Optional text labels
+- Typed IconData and SVG icons
+- Accessibility semantics
 
-CRYSTAL BOTTOM NAVIGATION BAR
-___ 
-+ Blur navigation bar
-+ Frosted navigation bar
-+ Floating navigation bar
-+ Rounded navigation bar
-+ Modern navigation bar
+## Install
 
-
-## Getting Started
-
-To install, add it to your `pubspec.yaml` file:
-
-```
+```yaml
 dependencies:
-    crystal_navigation_bar:
-
+  crystal_navigation_bar: ^2.0.0
 ```
 
 ```dart
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 ```
 
-## How to use it
+Set `extendBody: true` on your `Scaffold` when using the floating bar so content shows through the blur.
 
-Use `CrystalNavigationBar` constructor in Your app with in Scaffold's `bottomNavigationBar:`
-
-# Make sure extendBody in Scaffold should be true to use Floating behavior
-          extendBody: true,
-if you do not want to make round navigation bar with show body behind the navbar
-you have to make that
-
-          extendBody: false,
+## Basic usage
 
 ```dart
-Widget build(BuildContext context) {
-  return Scaffold(
-    body: Center(),
-    extendBody: true,//<------like this 
-    bottomNavigationBar:  CrystalNavigationBar(
-          currentIndex: _SelectedTab.values.indexOf(_selectedTab),
-          onTap: _handleIndexChanged,
-          indicatorColor: Colors.white,
-          // enableFloatingNavBar: false
-          items: [
-            
-            
-          ],
-        ),
-  );
-}
+Scaffold(
+  extendBody: true,
+  body: YourBody(),
+  bottomNavigationBar: CrystalNavigationBar(
+    currentIndex: index,
+    onTap: (i) => setState(() => index = i),
+    unselectedItemColor: Colors.white70,
+    backgroundColor: Colors.black.withValues(alpha: 0.35),
+    borderWidth: 2,
+    outlineBorderColor: Colors.white,
+    items: [
+      CrystalNavigationBarItem(
+        icon: Icons.home,
+        unselectedIcon: Icons.home_outlined,
+        selectedColor: Colors.white,
+        label: 'Home',
+        badge: Badge(label: Text('9+')),
+      ),
+      CrystalNavigationBarItem(
+        icon: Icons.search,
+        unselectedIcon: Icons.search_outlined,
+        selectedColor: Colors.white,
+        label: 'Search',
+      ),
+    ],
+  ),
+);
 ```
 
-## basic implementation
+### SVG icons
+
+Declare assets in your app, then:
 
 ```dart
-Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        child: Image.network(
-          "https://images.pexels.com/photos/1671325/pexels-photo-1671325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-          fit: BoxFit.fitHeight,
-        ),
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: CrystalNavigationBar(
-          currentIndex: _SelectedTab.values.indexOf(_selectedTab),
-          // indicatorColor: Colors.white,
-          unselectedItemColor: Colors.white70,
-          backgroundColor: Colors.black.withOpacity(0.1),
-          // outlineBorderColor: Colors.black.withOpacity(0.1),
-          borderWidth: 2,
-          outlineBorderColor: Colors.white,
-          onTap: _handleIndexChanged,
-          items: [
-            /// Home
-            CrystalNavigationBarItem(
-              icon: IconlyBold.home,
-              unselectedIcon: IconlyLight.home,
-              selectedColor: Colors.white,
-              badge: Badge(
-                label: Text(
-                  "9+",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
-
-            /// Favourite
-            CrystalNavigationBarItem(
-              icon: IconlyBold.heart,
-              unselectedIcon: IconlyLight.heart,
-              selectedColor: Colors.red,
-            ),
-
-            /// Add
-            CrystalNavigationBarItem(
-              icon: IconlyBold.plus,
-              unselectedIcon: IconlyLight.plus,
-              selectedColor: Colors.white,
-            ),
-
-            /// Search
-            CrystalNavigationBarItem(
-                icon: IconlyBold.search,
-                unselectedIcon: IconlyLight.search,
-                selectedColor: Colors.white),
-
-            /// Profile
-            CrystalNavigationBarItem(
-              icon: IconlyBold.user_2,
-              unselectedIcon: IconlyLight.user,
-              selectedColor: Colors.white,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
+CrystalNavigationBarItem.svg(
+  iconPath: 'assets/icons/home.svg',
+  unselectedIconPath: 'assets/icons/home_outline.svg',
+  label: 'Home',
+)
 ```
 
-The constructor has 19 attributes related to the Widget:
+Or use `CrystalNavigationBarItem.custom` with `CrystalNavIcon.data` / `CrystalNavIcon.svg`.
 
-- `items`: A list of tabs to display, example `Home`, `Profile`,`Search`, etc
-- `height`: The height of CrystalNavigationBar, [Default] & [Minimum] height is 105,
-- `currentIndex`: The tab to display.
-- `onTap`:Returns the index of the tab that was tapped.
-- `outlineBorderColor` : Border Color of the Bottom bar.
-- `borderWidth` : Border Width of the Bottom bar.
-- `badge` : Badge to display. (to display notification count etc).
-- `selectedItemColor`:The color of the icon and text when the item is selected.
-- `unselectedItemColor`: The color of the icon and text when the item is not selected.
-- `margin`:A convenience field for the margin surrounding the entire widget.
-- `itemPadding`:The padding of each item.
-- `duration`: The transition duration.
-- `curve`: The transition curve.
-- `indicatorColor`:The color of the tab indicator.
-- `marginR`:margin for the bar to give some radius .
-- `paddingR`:padding for the bar to give some radius.
-- `borderRadius`:border radius for nav bar.
-- `backgroundColor`:background colors for the nav bar.
-- `boxShadow`: floating nav bar shadow ,it takes `List of BoxShadow`
-- `enableFloatingNavBar`: make Floating nav bar enabled.
-- `enablePaddingAnimation`: enable the animation on item during item change.
-- `splashColor`: Color of the item's Splash Color. To disable, use `Colors.transparent`.
+## Migrating from 1.x
 
+| 1.x | 2.0 |
+|-----|-----|
+| Optional `onTap` | **Required** `onTap` |
+| `enablePaddingAnimation` | **Removed** (was unused) |
+| `dynamic` icons | Typed constructors / `CrystalNavIcon` |
+| `Badge? badge` | `Widget? badge` |
+| Height floored to 105 | Custom `height` honored (default `86`) |
+| Exported `Body` | **Not exported** |
+| — | New: `blurSigma`, `showLabels`, item `label` |
 
-**iconly package is used for Icons in the demo/example**
-## Adjust Colors of background, unselectedItemColor, selectedItemColor according to your UI for better Design.
+## Parameters
 
-#### Example Usage
+**CrystalNavigationBar**
 
-See [Example Code](example/lib/main.dart) for more info.
+| Parameter | Description |
+|-----------|-------------|
+| `items` | Tabs to show |
+| `currentIndex` | Selected index |
+| `onTap` | Tap callback |
+| `height` | Bar height (default `86`) |
+| `selectedItemColor` / `unselectedItemColor` | Fallback icon/label colors |
+| `indicatorColor` | Indicator color |
+| `backgroundColor` | Fill behind blur |
+| `outlineBorderColor` / `borderWidth` | Border |
+| `borderRadius` | Corner radius |
+| `marginR` / `paddingR` | Floating margins / inner padding |
+| `margin` / `itemPadding` | Non-floating / per-item padding |
+| `duration` / `curve` | Selection animation |
+| `boxShadow` | Floating shadows |
+| `enableFloatingNavBar` | Floating vs edge-to-edge |
+| `blurSigma` | Backdrop blur strength |
+| `showLabels` | Show item labels |
+| `splashColor` / `splashBorderRadius` | Ink splash |
 
-### Contributing
-Every pull request is welcome.
+**CrystalNavigationBarItem**
+
+| Parameter | Description |
+|-----------|-------------|
+| `icon` / `unselectedIcon` | Via constructors |
+| `selectedColor` / `unselectedColor` | Per-item colors |
+| `badge` | Any overlay widget |
+| `label` | Optional text when `showLabels` is true |
+
+Adjust colors for your UI. See [example/lib/main.dart](example/lib/main.dart) for a full demo.
+
+## Contributing
+
+Pull requests are welcome.
 
 ## Contributors
+
 Imtiaz Ahmad
-- [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/its_immi)
-- [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/immi420)
-- [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/imtiazahmadofficial/)
 
-   
-
+- [Twitter](https://twitter.com/its_immi)
+- [GitHub](https://github.com/immi420)
+- [LinkedIn](https://www.linkedin.com/in/imtiazahmadofficial/)
